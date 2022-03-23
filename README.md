@@ -1,6 +1,6 @@
 # README
 
 # Schema
-![image](https://user-images.githubusercontent.com/78194232/159799699-fb3d288c-253c-4eee-9132-36e3f7982724.png)
+![image](https://user-images.githubusercontent.com/78194232/159802179-e984cb8c-9f54-4476-8c0a-b27f169e712d.png)
 
 
