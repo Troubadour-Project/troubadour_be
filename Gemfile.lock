@@ -199,9 +199,9 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  figaro
   graphiql-rails
   graphql (= 1.9.18)
-  figaro
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
@@ -220,4 +220,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.9
+   2.3.5
