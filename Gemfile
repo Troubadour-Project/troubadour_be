@@ -38,6 +38,9 @@ gem 'figaro'
 # AWS SDK for S3 storage
 gem "aws-sdk-s3", require: false
 
+# GraphQL requests with uploads
+gem 'apollo_upload_server', '2.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
