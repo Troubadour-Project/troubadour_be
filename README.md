@@ -29,13 +29,17 @@
             "description": "A user's musical genre",
             "type": "string"
         },
-        "selected": {
-            "description": "A user's submission selected status",
-            "type": "boolean"
+        "song_title": {
+            "description": "A user's song title for their submitted video",
+            "type": "string"
         },
         "type": {
             "description": "A user's role type, musician or admin",
             "type": "integer"
+        },
+        "selected": {
+            "description": "A user's submission selected status",
+            "type": "boolean"
         },
         "profile": {
             "description": "A user's profile photo",
