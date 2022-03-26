@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
   
   post "/graphql", to: "graphql#execute"
+
+  post '/users', to: 'users#create'
 end
