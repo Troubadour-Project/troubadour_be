@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    email = { email: user_params[:email] }
     user = User.create!(user_params)
     user.profile.attach(user_params[:profile])
     user.video.attach(user_params[:video])
