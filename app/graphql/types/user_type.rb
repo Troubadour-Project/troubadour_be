@@ -14,10 +14,10 @@ module Types
   end
 
   def profile
-    rails_blob_path(object.profile, only_path: true)
+    url_for(object.profile)
   end
 
   def video
-    rails_blob_path(object.video, only_path: true)
+    url_for(object.video)
   end
 end
