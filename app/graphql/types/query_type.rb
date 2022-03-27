@@ -5,5 +5,9 @@ module Types
 
     field :fetch_users, resolver: Queries::FetchUsers, null: false, description: 'Returns a list of users'
     field :fetch_user, resolver: Queries::FetchUser
+
+     def all
+       User.all.with_attached_profile.with_attached_video
+     end
   end
 end
