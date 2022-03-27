@@ -30,7 +30,3 @@
 
 # Ignore macOS DS_Store files
 **/.DS_Store
-
-# Ignore Gemlock
-/Gemfile.lock
-Gemfile.lock
