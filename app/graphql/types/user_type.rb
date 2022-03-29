@@ -11,13 +11,15 @@ module Types
     field :user_type, Integer, null: false
     field :profile, String, null: false
     field :video, String, null: false
-  end
-
-  def profile
-    url_for(object.profile)
-  end
-
-  def video
-    url_for(object.video)
+    field :profile_url, String, null: false
+    field :video_url, String, null: false
+    
+    def profile_url
+      object.profile.url
+    end
+  
+    def video_url
+      object.video.url
+    end
   end
 end
