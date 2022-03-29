@@ -88,7 +88,7 @@
     },
     "required": [
         "id",
-        "name",
+        "username",
         "email"
     ]
 },
