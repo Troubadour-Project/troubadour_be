@@ -1,7 +1,7 @@
 # README
 
 # Schema
-![image](https://user-images.githubusercontent.com/78194232/160513335-768a6bab-cc45-43c4-bed1-79f9854a2a95.png)
+![image](https://user-images.githubusercontent.com/78194232/160707141-702122b5-f8e7-43bf-876d-530a280160a2.png)
 
 
 # JSON Contract
@@ -32,6 +32,10 @@
         "song_title": {
             "description": "A submission's song title for their submitted video",
             "type": "string"
+        },
+        "winner": {
+            "description": "A submission's winner status",
+            "type": "boolean"
         },
         "profile": {
             "description": "A submission's profile photo",
@@ -85,7 +89,7 @@
     "required": [
         "id",
         "name",
-        "email",
+        "email"
     ]
 },
 {
@@ -105,8 +109,8 @@
             "description": "A submission admin's submission id",
             "type": "integer",
         },
-        "selected": {
-            "description": "A submission admin's selected status",
+        "favorite": {
+            "description": "A submission admin's favorite status",
             "type": "boolean",
         },
     },
@@ -114,7 +118,7 @@
         "id",
         "admin_id",
         "submission_id",
-        "selected"
+        "favorite"
     ]
 }
 ```
