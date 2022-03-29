@@ -8,8 +8,8 @@
 ```json
 
 {
-    "title": "User",
-    "description": "A user",
+    "title": "Submission",
+    "description": "A submission",
     "type": "object",
     "properties": {
         "id": {
@@ -17,37 +17,39 @@
             "type": "integer"
         },
         "name": {
-            "description": "A user's name",
+            "description": "A submission's name",
             "type": "string"
         },
         "email": {
-            "description": "A user's email address",
+            "description": "A submission's email address",
             "type": "string",
             "format": "email"
         },
         "genre": {
-            "description": "A user's musical genre",
+            "description": "A submission's musical genre",
             "type": "string"
         },
         "song_title": {
-            "description": "A user's song title for their submitted video",
+            "description": "A submission's song title for their submitted video",
             "type": "string"
         },
-        "type": {
-            "description": "A user's role type, musician or admin",
-            "type": "integer"
-        },
-        "selected": {
-            "description": "A user's submission selected status",
-            "type": "boolean"
-        },
         "profile": {
-            "description": "A user's profile photo",
+            "description": "A submission's profile photo",
             "type": "string",
             "contentMediaType": "image/*"
         },
         "video": {
-            "description": "A user's submission video",
+            "description": "A submission's video",
+            "type": "string",
+            "contentMediaType": "video/*"
+        }
+        "profile_url": {
+            "description": "A submission's profile photo url",
+            "type": "string",
+            "contentMediaType": "image/*"
+        },
+        "video_url": {
+            "description": "A submission's video url",
             "type": "string",
             "contentMediaType": "video/*"
         }
@@ -57,10 +59,62 @@
         "name",
         "email",
         "genre",
-        "selected",
-        "type",
         "profile",
         "video"
+    ]
+},
+{
+    "title": "Admin",
+    "description": "A admin user",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A admin's unique identifier",
+            "type": "integer"
+        },
+        "username": {
+            "description": "A admin's name",
+            "type": "string"
+        },
+        "email": {
+            "description": "A submission's email address",
+            "type": "string",
+            "format": "email"
+        },
+    },
+    "required": [
+        "id",
+        "name",
+        "email",
+    ]
+},
+{
+    "title": "Submission_Admin",
+    "description": "A submission's admin ",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A submission admin's unique identifier",
+            "type": "integer"
+        },
+        "admin_id": {
+            "description": "A submission admin's admin id",
+            "type": "integer"
+        },
+        "submission_id": {
+            "description": "A submission admin's submission id",
+            "type": "integer",
+        },
+        "selected": {
+            "description": "A submission admin's selected status",
+            "type": "boolean",
+        },
+    },
+    "required": [
+        "id",
+        "admin_id",
+        "submission_id",
+        "selected"
     ]
 }
 ```
