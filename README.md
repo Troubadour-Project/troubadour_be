@@ -46,16 +46,14 @@
             "description": "A submission's video",
             "type": "string",
             "contentMediaType": "video/*"
-        }
+        },
         "profile_url": {
             "description": "A submission's profile photo url",
             "type": "string",
-            "contentMediaType": "image/*"
         },
         "video_url": {
             "description": "A submission's video url",
             "type": "string",
-            "contentMediaType": "video/*"
         }
     },
     "required": [
@@ -84,7 +82,7 @@
             "description": "A submission's email address",
             "type": "string",
             "format": "email"
-        },
+        }
     },
     "required": [
         "id",
