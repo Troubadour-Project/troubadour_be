@@ -1,7 +1,7 @@
 # README
 
 # Schema
-![image](https://user-images.githubusercontent.com/78194232/159802179-e984cb8c-9f54-4476-8c0a-b27f169e712d.png)
+![image](https://user-images.githubusercontent.com/78194232/160513335-768a6bab-cc45-43c4-bed1-79f9854a2a95.png)
 
 
 # JSON Contract
