@@ -1,15 +1,15 @@
 # README
 
 # Schema
-![image](https://user-images.githubusercontent.com/78194232/160513335-768a6bab-cc45-43c4-bed1-79f9854a2a95.png)
+![image](https://user-images.githubusercontent.com/78194232/160707141-702122b5-f8e7-43bf-876d-530a280160a2.png)
 
 
 # JSON Contract
 ```json
 
 {
-    "title": "User",
-    "description": "A user",
+    "title": "Submission",
+    "description": "A submission",
     "type": "object",
     "properties": {
         "id": {
@@ -17,39 +17,43 @@
             "type": "integer"
         },
         "name": {
-            "description": "A user's name",
+            "description": "A submission's name",
             "type": "string"
         },
         "email": {
-            "description": "A user's email address",
+            "description": "A submission's email address",
             "type": "string",
             "format": "email"
         },
         "genre": {
-            "description": "A user's musical genre",
+            "description": "A submission's musical genre",
             "type": "string"
         },
         "song_title": {
-            "description": "A user's song title for their submitted video",
+            "description": "A submission's song title for their submitted video",
             "type": "string"
         },
-        "type": {
-            "description": "A user's role type, musician or admin",
-            "type": "integer"
-        },
-        "selected": {
-            "description": "A user's submission selected status",
+        "winner": {
+            "description": "A submission's winner status",
             "type": "boolean"
         },
         "profile": {
-            "description": "A user's profile photo",
+            "description": "A submission's profile photo",
             "type": "string",
             "contentMediaType": "image/*"
         },
         "video": {
-            "description": "A user's submission video",
+            "description": "A submission's video",
             "type": "string",
             "contentMediaType": "video/*"
+        },
+        "profile_url": {
+            "description": "A submission's profile photo url",
+            "type": "string",
+        },
+        "video_url": {
+            "description": "A submission's video url",
+            "type": "string",
         }
     },
     "required": [
@@ -57,10 +61,62 @@
         "name",
         "email",
         "genre",
-        "selected",
-        "type",
         "profile",
         "video"
+    ]
+},
+{
+    "title": "Admin",
+    "description": "A admin user",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A admin's unique identifier",
+            "type": "integer"
+        },
+        "username": {
+            "description": "A admin's name",
+            "type": "string"
+        },
+        "email": {
+            "description": "A submission's email address",
+            "type": "string",
+            "format": "email"
+        }
+    },
+    "required": [
+        "id",
+        "username",
+        "email"
+    ]
+},
+{
+    "title": "Submission_Admin",
+    "description": "A submission's admin ",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A submission admin's unique identifier",
+            "type": "integer"
+        },
+        "admin_id": {
+            "description": "A submission admin's admin id",
+            "type": "integer"
+        },
+        "submission_id": {
+            "description": "A submission admin's submission id",
+            "type": "integer",
+        },
+        "favorite": {
+            "description": "A submission admin's favorite status",
+            "type": "boolean",
+        },
+    },
+    "required": [
+        "id",
+        "admin_id",
+        "submission_id",
+        "favorite"
     ]
 }
 ```
