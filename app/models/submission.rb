@@ -9,4 +9,14 @@ class Submission < ApplicationRecord
   validates_presence_of :genre
   validates_presence_of :song_title
   validates_presence_of :winner
+
+  # Instance methods
+  def admin_favorite(admin_id)
+    sub_admin = submission_admins.where(admin_id: admin_id)
+    if sub_admin.empty?
+      return false
+    else
+      return sub_admin.first.favorite
+    end
+  end
 end
