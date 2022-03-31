@@ -1,13 +1,13 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :get_submission, resolver: Queries::GetSubmission, description: 'Returns a submissions data'
+    field :get_submissions, resolver: Queries::GetSubmissions, null: true, description: 'Returns a list of submissions'
+    # field :get_winning_submissions, resolver: Queries::GetWinningSubmissions, null: true, description: 'Returns a list of winning submissions'
 
-    field :fetch_users, resolver: Queries::FetchUsers, null: true, description: 'Returns a list of users'
-    field :fetch_user, resolver: Queries::FetchUser
+    field :get_admin, resolver: Queries::GetAdmin, null: true, description: 'Returns a specific admins data'
 
-     def all
-       User.all.with_attached_profile.with_attached_video
-     end
+    #  def get_submissions
+    #    Submission.all
+    #  end
   end
 end
