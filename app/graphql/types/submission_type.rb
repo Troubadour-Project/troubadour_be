@@ -13,9 +13,8 @@ module Types
     field :profile_url, String, null: false
     field :video_url, String, null: false
 
-    field :admin_favorite, Boolean, null: false do
+    field :admin_favorite, Boolean, null: true do
       argument :admin_id, Integer, required: true
-      # argument :submission_id, Integer, required: true
     end
     
     def profile_url
@@ -27,11 +26,7 @@ module Types
     end
 
     def admin_favorite(admin_id:)
-      if object.submission_admins.where(admin_id: admin_id).where(favorite: true)
-        return true
-      else
-        return false
-      end
+      object.admin_favorite(admin_id)
     end
   end
 end
