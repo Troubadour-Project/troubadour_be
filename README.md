@@ -124,7 +124,7 @@
 ## Create Submission
 Description: Create a new submission by adding user information and uploading a profile and video in the form fields. 
 ### Sample Request `post \api\v1\submissions`
-``` form-data
+```form-data
 { submission: {
     name: "User",
     email: "sample@email.com",
@@ -136,7 +136,7 @@ Description: Create a new submission by adding user information and uploading a 
  }
  ```
  ### Sample Response 
- ```
+ ```json
  {
     "data": {
         "id": "3",
@@ -177,8 +177,8 @@ Description: Create a new submission by adding user information and uploading a 
     }
 }
 ```
-    
-    
+### Sample Invalid Response
+
 # GraphQL Queries
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
