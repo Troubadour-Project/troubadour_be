@@ -178,7 +178,11 @@ Description: Create a new submission by adding user information and uploading a 
 }
 ```
 ### Sample Invalid Response
-
+```json
+{
+    "errors": "Validation failed: Name can't be blank, Email can't be blank, Genre can't be blank, Song title can't be blank"
+}
+```
 # GraphQL Queries
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
