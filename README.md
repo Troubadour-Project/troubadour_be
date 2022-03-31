@@ -120,3 +120,238 @@
     ]
 }
 ```
+# GraphQL Queries
+## getAdmin
+Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
+### Sample Request
+```graphql
+{
+  getAdmin(id: Integer) {
+    id
+    username
+    email
+    submissions {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+      profileUrl
+      videoUrl
+      adminFavorite(adminId: Integer)
+    }
+  }
+}
+```
+### Sample Valid Response
+```json
+{
+  "data": {
+    "getAdmin": {
+      "id": "1",
+      "username": "admin1",
+      "email": "sherman_heidenreich@kessler-lynch.org",
+      "submissions": [
+        {
+          "id": "1",
+          "name": "sub1",
+          "email": "joan.pfannerstill@friesen.biz",
+          "genre": "sit",
+          "songTitle": "eum",
+          "winner": false,
+          "profileUrl": "https://troubadour...",
+          "videoUrl": "https://troubadour...",
+          "adminFavorite": true
+        },
+        {
+          "id": "2",
+          "name": "sub2",
+          "email": "kurt.parisian@berge-kerluke.com",
+          "genre": "sequi",
+          "songTitle": "iusto",
+          "winner": false,
+          "profileUrl": "https://troubadour...",
+          "videoUrl": "https://troubadour...",
+          "adminFavorite": false
+        },
+        {...
+        }
+      ]
+    }
+  }
+}
+```
+### Sample Invalid Response
+```json
+{
+  "data": {
+    "getAdmin": null
+  },
+  "errors": [
+    {
+      "message": "Admin does not exist",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "getAdmin"
+      ]
+    }
+  ]
+}
+```
+## getSubmission
+Description: Get submission by submission id. If there is a match, return requested field values. Otherwise return null.
+### Sample Request
+```graphql
+{
+  getSubmission(id: Integer) {
+    id
+    name
+    email
+    genre
+    songTitle
+    winner
+    profileUrl
+    videoUrl
+    adminFavorite(adminId: Integer)
+  }
+}
+```
+### Sample Valid Response
+```json
+{
+  "data": {
+    "getSubmission": {
+      "id": "1",
+      "name": "sub1",
+      "email": "joan.pfannerstill@friesen.biz",
+      "genre": "sit",
+      "songTitle": "eum",
+      "winner": false,
+      "profileUrl": "https://troubadour...",
+      "videoUrl": "https://troubadour...",
+      "adminFavorite": true
+    }
+  }
+}
+```
+### Sample Invalid Response
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Submission does not exist",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "getSubmission"
+      ]
+    }
+  ]
+}
+```
+## getSubmissions
+Description: Get array of all submissions and their fields.
+### Sample Request
+```graphql
+{
+  getSubmissions {
+    id
+    name
+    email
+    genre
+    songTitle
+    winner
+    profileUrl
+    videoUrl
+    adminFavorite(adminId: 1)
+  }
+}
+```
+### Sample Response
+```json
+{
+  "data": {
+    "getSubmissions": [
+      {
+        "id": "5",
+        "name": "sub5",
+        "email": "deidre@balistreri-mclaughlin.info",
+        "genre": "quod",
+        "songTitle": "quia",
+        "winner": false,
+        "profileUrl": "https://troubadour...",
+        "videoUrl": "https://troubadour...",
+        "adminFavorite": false
+      },
+      {
+        "id": "4",
+        "name": "sub4",
+        "email": "dulce_abshire@witting-abbott.org",
+        "genre": "quidem",
+        "songTitle": "laborum",
+        "winner": false,
+        "profileUrl": "https://troubadour...",
+        "videoUrl": "https://troubadour...",
+        "adminFavorite": false
+      },
+      {...
+      }
+    ]
+  }
+}
+```
+## getWinner
+Description: Get the winning submission. If there is a match, return requested field values. Otherwise return null.
+### Sample Request
+```graphql
+{
+  getWinner {
+    id
+    name
+    email
+    genre
+    songTitle
+    winner
+    profileUrl
+    videoUrl
+    adminFavorite(adminId: 1)
+  }
+}
+```
+### Sample Valid Response
+```json
+{
+  "data": {
+    "getWinner": {
+      "id": "1",
+      "name": "sub1",
+      "email": "joan.pfannerstill@friesen.biz",
+      "genre": "sit",
+      "songTitle": "eum",
+      "winner": true,
+      "profileUrl": "https://troubadour...",
+      "videoUrl": "https://troubadour...",
+      "adminFavorite": true
+    }
+  }
+}
+```
+### Sample Invalid Response
+```json
+{
+  "data": {
+    "getWinner": null
+  }
+}
+```
