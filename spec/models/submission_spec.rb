@@ -6,7 +6,7 @@ RSpec.describe Submission, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:song_title) }
     it { should validate_presence_of(:genre) }
-    it { should validate_presence_of(:winner) }
+    # it { should validate_presence_of(:winner) }
     it { should have_one_attached(:profile) }
     it { should have_one_attached(:video) }
   end
