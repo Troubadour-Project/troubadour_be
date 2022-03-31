@@ -120,6 +120,65 @@
     ]
 }
 ```
+# REST Query 
+## Create Submission
+Description: Create a new submission by adding user information and uploading a profile and video in the form fields. 
+### Sample Request `post \api\v1\submissions`
+``` form-data
+{ submission: {
+    name: "User",
+    email: "sample@email.com",
+    genre: "Bluegrass",
+    song_title: "Turing",
+    profile: "<Add your image to form field>",
+    video: "<Add your submission video to form field>"
+    }
+ }
+ ```
+ ### Sample Response 
+ ```
+ {
+    "data": {
+        "id": "3",
+        "type": "submissions",
+        "attributes": {
+            "name": "User",
+            "email": "sample@email.com",
+            "song_title": "Turing",
+            "genre": "Bluegrass",
+            "video": {
+                "name": "video",
+                "record": {
+                    "id": 3,
+                    "name": "User",
+                    "email": "sample@email.com",
+                    "genre": "Bluegrass",
+                    "song_title": "Turing",
+                    "created_at": "2022-03-31T15:40:40.464Z",
+                    "updated_at": "2022-03-31T15:40:40.694Z",
+                    "winner": null
+                }
+            },
+            "profile": {
+                "name": "profile",
+                "record": {
+                    "id": 3,
+                    "name": "User",
+                    "email": "sample@email.com",
+                    "genre": "Bluegrass",
+                    "song_title": "Turing",
+                    "created_at": "2022-03-31T15:40:40.464Z",
+                    "updated_at": "2022-03-31T15:40:40.694Z",
+                    "winner": null
+                }
+            },
+            "winner": null
+        }
+    }
+}
+```
+    
+    
 # GraphQL Queries
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
