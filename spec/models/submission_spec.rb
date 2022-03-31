@@ -6,7 +6,6 @@ RSpec.describe Submission, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:song_title) }
     it { should validate_presence_of(:genre) }
-    # it { should validate_presence_of(:winner) }
     it { should have_one_attached(:profile) }
     it { should have_one_attached(:video) }
   end
@@ -32,7 +31,7 @@ RSpec.describe Submission, type: :model do
         admin = create(:admin)
         submission = create(:submission)
         submission_admin = create(:submission_admin, admin: admin, submission: submission, favorite: true)
-        
+
         expect(submission.admin_favorite(admin.id)).to eq(true)
       end
 
@@ -44,7 +43,7 @@ RSpec.describe Submission, type: :model do
 
         submission_admin = create(:submission_admin, admin: admin, submission: submission, favorite: false)
         submission_admin = create(:submission_admin, admin: admin_favorite, submission: submission, favorite: true)
-  
+
         expect(submission.admin_favorite(admin.id)).to eq(false)
         expect(submission.admin_favorite(admin_favorite.id)).to eq(true)
       end
