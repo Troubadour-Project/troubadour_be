@@ -12,7 +12,7 @@ RSpec.describe 'Submissions Request' do
                         genre: 'Bluegrass?',
                         profile: fixture_file_upload('users_profile_submission.JPG', 'image/jpg'),
                         video: fixture_file_upload('users_video_submission.mp4', 'video/mp4'),
-                        winner: nil
+                        winner: false
             })
             headers= {"CONTENT_TYPE" => "multipart/form-data"}
 
