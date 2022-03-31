@@ -2,7 +2,8 @@ class Api::V1::SubmissionsController < ApplicationController
   def create
     submission = Submission.create!(submission_params)
     attach_submission_admin(submission)
-    render json: SubmissionsSerializer.new(submission), status: 201
+
+    json_response(SubmissionsSerializer.new(submission), :created)
   end
 
   private
