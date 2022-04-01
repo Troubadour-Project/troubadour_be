@@ -418,3 +418,41 @@ Description: Get the winning submission. If there is a match, return requested f
   }
 }
 ```
+# GraphQL Mutations
+## updateWinner
+Description: Changes the winner boolean.*
+### Sample Request
+```graphql
+mutation {
+  updateWinner(input: {id: Integer, winner: Boolean}) {
+    submission {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+    }
+  }
+}
+
+```
+
+### Sample Valid Response
+```json
+{
+  "data": {
+    "updateWinner": {
+      "submission": {
+        "id": "1",
+        "name": "sub1",
+        "email": "silas.raynor@wisoky.name",
+        "genre": "accusantium",
+        "songTitle": "reprehenderit",
+        "winner": true
+      }
+    }
+  }
+}
+```
+*Note: Submission's winner boolean is set to false by default
