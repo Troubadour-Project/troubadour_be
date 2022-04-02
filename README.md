@@ -124,7 +124,7 @@
 ## Create Submission
 Description: Create a new submission by adding user information and uploading a profile and video in the form fields. 
 ### Sample Request `post \api\v1\submissions`
-``` form-data
+```form-data
 { submission: {
     name: "User",
     email: "sample@email.com",
@@ -136,7 +136,7 @@ Description: Create a new submission by adding user information and uploading a 
  }
  ```
  ### Sample Response 
- ```
+ ```json
  {
     "data": {
         "id": "3",
@@ -177,8 +177,12 @@ Description: Create a new submission by adding user information and uploading a 
     }
 }
 ```
-    
-    
+### Sample Invalid Response
+```json
+{
+    "errors": "Validation failed: Name can't be blank, Email can't be blank, Genre can't be blank, Song title can't be blank"
+}
+```
 # GraphQL Queries
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
@@ -414,3 +418,41 @@ Description: Get the winning submission. If there is a match, return requested f
   }
 }
 ```
+# GraphQL Mutations
+## updateWinner
+Description: Changes the winner boolean.*
+### Sample Request
+```graphql
+mutation {
+  updateWinner(input: {id: Integer, winner: Boolean}) {
+    submission {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+    }
+  }
+}
+
+```
+
+### Sample Valid Response
+```json
+{
+  "data": {
+    "updateWinner": {
+      "submission": {
+        "id": "1",
+        "name": "sub1",
+        "email": "silas.raynor@wisoky.name",
+        "genre": "accusantium",
+        "songTitle": "reprehenderit",
+        "winner": true
+      }
+    }
+  }
+}
+```
+*Note: Submission's winner boolean is set to false by default

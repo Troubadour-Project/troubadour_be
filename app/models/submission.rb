@@ -6,7 +6,7 @@ class Submission < ApplicationRecord
   has_one_attached :video
   has_many :submission_admins
   has_many :admins, through: :submission_admins
-  
+
   validates_presence_of :name
   validates_presence_of :email
   validates_presence_of :genre

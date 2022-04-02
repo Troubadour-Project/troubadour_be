@@ -79,6 +79,7 @@ RSpec.describe Submission, type: :model do
         submission = create(:submission)
         submission.submission_admins.first.update(favorite: true)
 
+
         expect(submission.admin_favorite(admin.id)).to eq(true)
       end
       
@@ -88,7 +89,7 @@ RSpec.describe Submission, type: :model do
         
         submission = create(:submission)
         admin_favorite.submission_admins.first.update(favorite: true)        
-        
+
         expect(submission.admin_favorite(admin.id)).to eq(false)
         expect(submission.admin_favorite(admin_favorite.id)).to eq(true)
       end
