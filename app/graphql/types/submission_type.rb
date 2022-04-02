@@ -8,8 +8,6 @@ module Types
     field :genre, String, null: false
     field :song_title, String, null: false
     field :winner, Boolean, null: true
-    field :profile, String, null: false
-    field :video, String, null: false
     field :profile_url, String, null: false
     field :video_url, String, null: false
 
