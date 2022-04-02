@@ -1,5 +1,6 @@
 class Submission < ApplicationRecord
   after_initialize :set_winner, unless: :persisted?
+  after_create :create_submission_admins
 
   has_one_attached :profile
   has_one_attached :video
@@ -10,7 +11,7 @@ class Submission < ApplicationRecord
   validates_presence_of :email
   validates_presence_of :genre
   validates_presence_of :song_title
-  # validates_presence_of :winner
+  validates :winner, exclusion: [nil]
 
   # Instance methods
   def admin_favorite(admin_id)
@@ -24,7 +25,13 @@ class Submission < ApplicationRecord
 
   private
 
-    def set_winner
-      self.winner = false if self.winner.nil?
+  def set_winner
+    self.winner = false if self.winner.nil?
+  end
+
+  def create_submission_admins
+    Admin.all.each do |admin|
+      submission_admins.create!(admin_id: admin.id)
     end
+  end
 end
