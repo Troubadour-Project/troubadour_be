@@ -6,11 +6,10 @@ module Mutations
       field :submission_admin, Types::SubmissionAdminType, null: false
 
       def resolve(attributes)
-        submission_admin = object.where(submission_id: attributes[:submission_id])
-        .where(admin_id: attributes[:admin_id])
+        submission_admin = SubmissionAdmin.where(submission_id: attributes[:submission_id])
+        .where(admin_id: attributes[:admin_id]).first
         !submission_admin.favorite ? submission_admin.update(favorite: true) : submission_admin.update(favorite: false)
-        submission_admin
+        { submission_admin: submission_admin }
       end
     end
   end
-end
