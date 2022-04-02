@@ -23,6 +23,22 @@ module Mutations
             'favorite'      => false
           )
         end
+
+        it 'returns a submission_admin' do
+          submission_admin = create(:submission_admin)
+
+          post '/graphql', params: { query: query(submission_id: submission_admin.submission_id, admin_id: submission_admin.admin_id) }
+          require "pry"; binding.pry
+          json = JSON.parse(response.body)
+          data = json['data']['favoriteSubmissionAdmin']
+
+          expect(data).to include(
+            'submission_id'   => submission_admin.submission_id.to_s,
+            'admin_id'        => submission_admin.admin_id.to_s,
+            'favorite'        => true
+
+          )
+        end
       end
 
       def query(submission_id:, admin_id:)
@@ -31,11 +47,12 @@ module Mutations
             favoriteSubmissionAdmin(input: {
               submissionId: #{submission_id}
               adminId: #{admin_id} }
-            ) {
-              id
-              submissionId
-              adminId
-              favorite
+            ) { submissionAdmin {
+                id
+                submissionId
+                adminId
+                favorite
+              }
             }
           }
         GQL

@@ -1,9 +1,9 @@
 module Mutations
-    class FavoriteSubmissionAdmin < ::Mutations::BaseMutation
+    class FavoriteSubmissionAdmin < Mutations::BaseMutation
       argument :admin_id, Integer, required: true
       argument :submission_id, Integer, required: true
 
-      type Types::SubmissionAdminType
+      field :submission_admin, Types::SubmissionAdminType, null: false
 
       def resolve(attributes)
         submission_admin = SubmissionAdmin.where(submission_id: attributes[:submission_id])
