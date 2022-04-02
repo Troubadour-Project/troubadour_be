@@ -28,7 +28,7 @@ module Mutations
           submission_admin = create(:submission_admin)
 
           post '/graphql', params: { query: query(submission_id: submission_admin.submission_id, admin_id: submission_admin.admin_id) }
-          require "pry"; binding.pry
+
           json = JSON.parse(response.body)
           data = json['data']['favoriteSubmissionAdmin']
 
