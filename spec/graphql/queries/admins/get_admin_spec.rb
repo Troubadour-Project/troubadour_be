@@ -56,7 +56,7 @@ RSpec.describe Types::QueryType, type: :request do
   context 'get_admin' do
     it 'returns a single admin when given a valid id' do
       admin = create(:admin, id: 1)
-      admin2 = create(:admin)
+      admin2 = create(:admin, id: 2)
 
       response = TroubadourBeSchema.execute(query)
       parsed = json_parse(response.to_json)
