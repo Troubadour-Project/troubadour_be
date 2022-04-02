@@ -33,8 +33,8 @@ module Mutations
           data = json['data']['favoriteSubmissionAdmin']
 
           expect(data).to include(
-            'submission_id'   => submission_admin.submission_id.to_s,
-            'admin_id'        => submission_admin.admin_id.to_s,
+            'submissionId'   => submission_admin.submission_id.to_s,
+            'adminId'        => submission_admin.admin_id.to_s,
             'favorite'        => true
 
           )
