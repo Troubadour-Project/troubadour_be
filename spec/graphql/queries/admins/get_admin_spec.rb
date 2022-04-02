@@ -12,7 +12,7 @@ RSpec.describe Types::QueryType, type: :request do
     }
     GQL
   }
-
+  
   let(:query_with_subs) {
     <<~GQL
     {
@@ -24,6 +24,30 @@ RSpec.describe Types::QueryType, type: :request do
           id
           name
         }
+      }
+    }
+    GQL
+  }
+  
+  let(:invalid_query) {
+    <<~GQL
+    {
+      getAdmin(id: 2) {
+        id
+        username
+        email
+      }
+    }
+    GQL
+  }
+
+  let(:invalid_field) {
+    <<~GQL
+    {
+      getAdmin(id: 1) {
+        id
+        name
+        email
       }
     }
     GQL
@@ -57,6 +81,37 @@ RSpec.describe Types::QueryType, type: :request do
       expect(parsed[:submissions].count).to eq(2)
       expect(parsed[:submissions].first[:id]).to eq(sub_admin1.submission.id.to_s)
       expect(parsed[:submissions].first[:name]).to eq(sub_admin1.submission.name)
+    end
+
+    it 'returns an error if given an invalid admin id' do
+      admin = create(:admin, id: 1)
+
+      response = TroubadourBeSchema.execute(invalid_query)
+      parsed = json_parse(response.to_json)
+      
+      expect(parsed.count).to eq(2)
+      expect(parsed[:data][:getAdmin]).to eq(nil)
+      expect(parsed[:errors][0][:message]).to eq('Admin does not exist')
+      expect(parsed[:errors][0][:locations][0][:line]).to eq(2)
+      expect(parsed[:errors][0][:locations][0][:column]).to eq(3)
+      expect(parsed[:errors][0][:path][0]).to eq('getAdmin')
+    end
+
+    it 'returns an error if given an invalid field' do
+      admin = create(:admin, id: 1)
+
+      response = TroubadourBeSchema.execute(invalid_field)
+      parsed = json_parse(response.to_json)[:errors][0]
+      
+      expect(parsed[:message]).to eq("Field 'name' doesn't exist on type 'Admin'")
+      expect(parsed[:locations][0][:line]).to eq(4)
+      expect(parsed[:locations][0][:column]).to eq(5)
+      expect(parsed[:path][0]).to eq('query')
+      expect(parsed[:path][1]).to eq('getAdmin')
+      expect(parsed[:path][2]).to eq('name')
+      expect(parsed[:extensions][:code]).to eq('undefinedField')
+      expect(parsed[:extensions][:typeName]).to eq('Admin')
+      expect(parsed[:extensions][:fieldName]).to eq('name')
     end
   end
 end
