@@ -69,8 +69,8 @@ RSpec.describe Types::QueryType, type: :request do
     
     it "returns a single admin with it's submissions" do
       admin = create(:admin, id: 1)
-      sub_admin1 = create(:submission_admin, admin_id: 1)
-      sub_admin2 = create(:submission_admin, admin_id: 1)
+      sub_admin1 = create(:submission).submission_admins.first
+      sub_admin2 = create(:submission).submission_admins.first
       response = TroubadourBeSchema.execute(query_with_subs)
       parsed = json_parse(response.to_json)[:data][:getAdmin]
 
