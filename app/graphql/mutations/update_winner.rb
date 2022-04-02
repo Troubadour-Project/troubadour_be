@@ -5,6 +5,7 @@ class Mutations::UpdateWinner < Mutations::BaseMutation
   field :submission, Types::SubmissionType, null: false
 
   def resolve(id:, winner:)
+    Submission.update_all winner: false
     submission = Submission.find(id)
     submission.update(winner: winner)
     { submission: submission }
