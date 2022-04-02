@@ -30,7 +30,7 @@ module Mutations
           post '/graphql', params: { query: query(submission_id: submission_admin.submission_id, admin_id: submission_admin.admin_id) }
 
           json = JSON.parse(response.body)
-          data = json['data']['favoriteSubmissionAdmin']
+          data = json['data']['favoriteSubmissionAdmin']['submissionAdmin']
 
           expect(data).to include(
             'submissionId'   => submission_admin.submission_id,
