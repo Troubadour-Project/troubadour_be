@@ -1,32 +1,44 @@
 require 'rails_helper'
 
-RSpec.describe Mutations::FavoriteSubmissionAdmin, type: :request do
-  let(:query) {
-          <<~GQL
+module Mutations
+    RSpec.describe FavoriteSubmissionAdmin, type: :request do
+      describe 'resolve' do
+        it 'updates a submission admin favorite, if false to true and if true to false' do
+          submission_admin = create(:submission_admin)
+          expect(submission_admin.favorite).to eq(false)
+
+          post '/graphql', params: { query: query(submission_id: submission_admin.submission_id, admin_id: submission_admin.admin_id) }
+
+          expect(submission_admin.reload).to have_attributes(
+            'submission_id' => submission_admin.submission_id,
+            'admin_id'      => submission_admin.admin_id,
+            'favorite'      => true
+          )
+
+          post '/graphql', params: { query: query(submission_id: submission_admin.submission_id, admin_id: submission_admin.admin_id) }
+
+          expect(submission_admin.reload).to have_attributes(
+            'submission_id' => submission_admin.submission_id,
+            'admin_id'      => submission_admin.admin_id,
+            'favorite'      => false
+          )
+        end
+      end
+
+      def query(submission_id:, admin_id:)
+        <<~GQL
           mutation {
-            favoriteSubmissionAdmin(input: { submission_id: "#{@submission.id}", admin_id: "#{@admin.id}"})
-        }
-      GQL
-      }
-
-  describe '.resolve' do
-    it 'updates a SubmissionAdmins favorite status' do
-      @admin = create(:admin, id: 1)
-      @submission = create(:submission, id: 1)
-
-      post '/graphql', params: { query: query }
-
-      json = JSON.parse(response.body)
-      data = json['data']
-
-      expect(data['submission_admin']['favoriteSubmissionAdmin']).to eq(true)
-
-      post '/graphql', params: { query: query }
-
-      json = JSON.parse(response.body)
-      data = json['data']
-
-      expect(data['submission_admin']['favoriteSubmissionAdmin']).to eq(false)
+            favoriteSubmissionAdmin(input: {
+              submissionId: #{submission_id}
+              adminId: #{admin_id} }
+            ) {
+              id
+              submissionId
+              adminId
+              favorite
+            }
+          }
+        GQL
+      end
     end
   end
-end
