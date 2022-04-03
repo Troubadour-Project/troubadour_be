@@ -83,6 +83,19 @@
         "review",
         "test"
       ]
+    },
+      "login": "Sierra-T-9598",
+      "name": "Sierra Tucker",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89213429?v=4",
+      "profile": "https://github.com/Sierra-T-9598",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
