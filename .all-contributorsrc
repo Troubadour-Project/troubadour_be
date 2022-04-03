@@ -31,6 +31,19 @@
         "review",
         "test"
       ]
+    },
+      "login": "Echory",
+      "name": "Echory",
+      "avatar_url": "https://avatars.githubusercontent.com/u/81824035?v=4",
+      "profile": "https://github.com/Echory",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
