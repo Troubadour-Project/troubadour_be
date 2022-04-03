@@ -1,0 +1,29 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "tjroeder",
+      "name": "Tim Roeder",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78194232?v=4",
+      "profile": "https://github.com/tjroeder",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "troubadour_be",
+  "projectOwner": "Troubadour-Project",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
