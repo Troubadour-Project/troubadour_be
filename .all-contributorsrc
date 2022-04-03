@@ -44,6 +44,19 @@
         "review",
         "test"
       ]
+    },
+      "login": "mr-ryan12",
+      "name": "Ryan McBride",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62816754?v=4",
+      "profile": "https://github.com/mr-ryan12",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
