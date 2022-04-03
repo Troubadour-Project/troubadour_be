@@ -575,7 +575,7 @@ Description: Get the winning submission. If there is a match, return requested f
 </details>
 
 <details>
-  <summary></b>GraphQL Mutations</b></summary>
+  <summary><b>GraphQL Mutations</b></summary>
     
 ## favoriteSubmissionAdmin 
 Description: Changes the favorite boolean on SubmissionAdmin from true to false/false to true
