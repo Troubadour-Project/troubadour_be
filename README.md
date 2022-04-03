@@ -1,5 +1,12 @@
 ![102184543](https://user-images.githubusercontent.com/89213429/161408284-969a518f-c8b7-4003-adbc-9509fffce797.png)
 # The Troubadour Project - API 
+![languages](https://img.shields.io/github/languages/top/Troubadour-Project/troubadour_be?color=red)
+![PRs](https://img.shields.io/github/issues-pr-closed/Troubadour-Project/troubadour_be)
+![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
+![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/contributors-7-orange.svg?style=flat)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 ## Visit the [Web Application](https://troubadour-fe.herokuapp.com/)  &   Find The Troubador Project - Web Application Repository [here](https://github.com/Troubadour-Project/troubadour-fe)
 ### Module 4 Group Capstone Project
 Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capstone/index.html)
@@ -650,3 +657,5 @@ mutation {
 *Note: Submission's winner boolean is set to false by default
 </details>
 </details>
+
+
