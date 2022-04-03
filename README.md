@@ -1,10 +1,113 @@
-# README
+![102184543](https://user-images.githubusercontent.com/89213429/161408284-969a518f-c8b7-4003-adbc-9509fffce797.png)
+# The Troubadour Project - API 
+## Visit the [Web Application](https://troubadour-fe.herokuapp.com/)  &   Find The Troubador Project - Web Application Repository [here](https://github.com/Troubadour-Project/troubadour-fe)
+### Module 4 Group Capstone Project
+Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capstone/index.html)
 
-# Schema
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#set-up">Set Up</a></li>
+        <li><a href="#use-of-this-repository">Use of this Repository</a>
+          <ul>
+            <li>API</li>
+          </ul>
+        </li>
+    </li>
+    </ul>
+    <li>
+      <a href="#project-description">About This Project</a>
+      <ul>
+        <li><a href="#learning-goals-for-project">Learning Goals for Project</a></li>
+        <li><a href="#versions">Versions</a></li>
+        <li><a href="#important-gems">Important Gems</a></li>
+        <li><a href="#database-schema">Database Schema</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#api">API</a>
+      <details>
+        <summary>Available Documentation</summary>
+        <ul>
+          <li>Postman Documentation</li>
+          <li>JSON Contract</li>
+          <li>REST Endpoint Example</li>
+          <li>GraphQL Query Examples</li>
+          <li>GraphQL Mutation Examples</li>
+        </ul>
+      </details>
+    </li>
+    <li><a href="#collaborators">Collaborators</a></li>
+  </ol>
+</details>
+
+----------
+
+## Getting Started
+
+### Set Up
+On your local system, open a terminal session to run the following commands:
+1. Clone this repository `$ git clone git@github.com:Troubadour-Project/troubadour_be.git`
+2. Navigate to the newly cloned directory `$ cd troubadour_be`
+3. If bundler is not installed run `$ gem install bundler`
+4. If or after bundler is installed run `$ bundle install` to install the required gems
+5. If errors occur, check for proper installation and versions of `bundler`, `ruby`, and `rails`
+6. Set up the database locally with `$ rails db:{:drop,:create,:migrate,:seed}`
+7. Open your text editor and check to see that `schema.rb` exists
+8. You may also run the RSpec test suite locally with the command `$ bundle exec rspec` to ensure everything is functioning as expected.
+
+### Use of this Repository
+
+**API**
+ 
+On your command line:
+1. Navigate to the local directory where the backend repo is housed
+2. Run `$ rails s` to run the server locally
+3. Open a web browser and navigate to http://localhost:3001/graphiql
+4. Here you are able to explore the endpoints exposed by the GraphQL API! 
+
+----------
+
+## Project Description
+
+This is a Full-Stack project designed to explore the fundamentals of exposing and consuming an API in order to develop an app that integrates microservices. Troubadour supports concert and festival venues that host contests for aspiring musicians. Musicians can submit their auditions complete with a profile image and video to be favorited by admin staff in hopes of being selected as the overall winner. Functionality is achieved by combining a postgreSQL database with Rails ActiveStorage and Amazon S3 to create the Troubadour API behind the frontend submission-based contest platform.
+
+### Learning Goals for Project:
+
+- Use an agile process
+- Building GraphQL API
+- Video and Image upload through ActiveStorage and Amazon S3
+- Practice a professional git workflow 
+- Implement continuous integration and deployment
+- Communication between front-end and back-end teams to meet and deploy the MVP
+
+----------
+
+### Versions
+
+- `Ruby 2.7.2`
+- `Rails 6.0`
+
+----------
+
+### Important Gems
+
+- Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails), [faker](https://github.com/vajradog/faker-rails)
+
+- API: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers), [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993)
+
+### Database Schema
 ![image](https://user-images.githubusercontent.com/78194232/160707141-702122b5-f8e7-43bf-876d-530a280160a2.png)
 
+# API 
+## Troubadour Published API Documentation - [Postman](https://documenter.getpostman.com/view/19252156/UVyswb76)
 
-# JSON Contract
+<details>
+    <summary> JSON Contract </summary>
+
 ```json
 
 {
@@ -120,10 +223,15 @@
     ]
 }
 ```
-# REST Query 
+</details>
+
+<details>
+    <summary> REST Query </summary>
+    
 ## Create Submission
 Description: Create a new submission by adding user information and uploading a profile and video in the form fields. 
 ### Sample Request `post \api\v1\submissions`
+    
 ```form-data
 { submission: {
     name: "User",
@@ -136,6 +244,7 @@ Description: Create a new submission by adding user information and uploading a 
  }
  ```
  ### Sample Response 
+    
  ```json
  {
     "data": {
@@ -183,10 +292,16 @@ Description: Create a new submission by adding user information and uploading a 
     "errors": "Validation failed: Name can't be blank, Email can't be blank, Genre can't be blank, Song title can't be blank"
 }
 ```
-# GraphQL Queries
+ </details>
+    
+<details>
+    <summary> GraphQL Queries </summary>
+    
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
-### Sample Request
+    <details>
+    <summary> Sample Request </summary>
+        
 ```graphql
 {
   getAdmin(id: Integer) {
@@ -207,7 +322,10 @@ Description: Get admin by admin id. If there is a match, return requested field 
   }
 }
 ```
-### Sample Valid Response
+</details>
+<details>
+    <summary> Sample Valid Response </summary>
+
 ```json
 {
   "data": {
@@ -245,7 +363,10 @@ Description: Get admin by admin id. If there is a match, return requested field 
   }
 }
 ```
-### Sample Invalid Response
+</details>
+<details>
+    <summary> Sample Invalid Response </summary>
+
 ```json
 {
   "data": {
@@ -267,9 +388,13 @@ Description: Get admin by admin id. If there is a match, return requested field 
   ]
 }
 ```
+</details>
+    
 ## getSubmission
 Description: Get submission by submission id. If there is a match, return requested field values. Otherwise return null.
-### Sample Request
+<details>
+    <summary> Sample Request </summary>
+    
 ```graphql
 {
   getSubmission(id: Integer) {
@@ -285,7 +410,10 @@ Description: Get submission by submission id. If there is a match, return reques
   }
 }
 ```
-### Sample Valid Response
+</details>
+<details>
+    <summary> Sample Valid Response </summary>
+
 ```json
 {
   "data": {
@@ -303,7 +431,9 @@ Description: Get submission by submission id. If there is a match, return reques
   }
 }
 ```
-### Sample Invalid Response
+</details>
+<details>
+    <summary> Sample Invalid Response </summary>
 ```json
 {
   "data": null,
@@ -323,9 +453,13 @@ Description: Get submission by submission id. If there is a match, return reques
   ]
 }
 ```
+</details> 
+
 ## getSubmissions
 Description: Get array of all submissions and their fields.
-### Sample Request
+<details>
+    <summary> Sample Request </summary>
+    
 ```graphql
 {
   getSubmissions {
@@ -341,7 +475,10 @@ Description: Get array of all submissions and their fields.
   }
 }
 ```
-### Sample Response
+</details> 
+<details>
+    <summary> Sample Response </summary>
+
 ```json
 {
   "data": {
@@ -374,9 +511,13 @@ Description: Get array of all submissions and their fields.
   }
 }
 ```
+</details>
+
 ## getWinner
 Description: Get the winning submission. If there is a match, return requested field values. Otherwise return null.
-### Sample Request
+<details>
+    <summary> Sample Request </summary>
+    
 ```graphql
 {
   getWinner {
@@ -392,7 +533,10 @@ Description: Get the winning submission. If there is a match, return requested f
   }
 }
 ```
-### Sample Valid Response
+</details>
+<details>
+    <summary> Sample Valid Response </summary>
+
 ```json
 {
   "data": {
@@ -410,7 +554,9 @@ Description: Get the winning submission. If there is a match, return requested f
   }
 }
 ```
-### Sample Invalid Response
+</details>
+<details>
+    <summary> Sample Invalid Response </summary>
 ```json
 {
   "data": {
@@ -418,10 +564,55 @@ Description: Get the winning submission. If there is a match, return requested f
   }
 }
 ```
-# GraphQL Mutations
+</details>
+</details>
+
+<details>
+    <summary> GraphQL Mutations </summary>
+    
+## favoriteSubmissionAdmin 
+Description: Changes the favorite boolean on SubmissionAdmin from true to false/false to true
+<details>
+    <summary> Sample Request </summary>
+
+```graphql
+mutation {
+  favoriteSubmissionAdmin(input: {submission_id: Integer, admin_id: Integer}) {
+    submissionAdmin {
+      id
+      submissionId
+      adminId
+      favorite
+    }
+  }
+}
+
+```
+</details>
+<details>
+    <summary> Sample Valid Response </summary>
+
+```json
+{
+  "data": {
+    "favoriteSubmissionAdmin": {
+      "submissionAdmin": {
+        "id": "1",
+        "submissionId": 3,
+        "adminId": 1,
+        "favorite": true,
+      }
+    }
+  }
+}
+```
+</details>
+
 ## updateWinner
 Description: Changes the winner boolean.*
-### Sample Request
+<details>
+    <summary> Sample Request </summary>
+
 ```graphql
 mutation {
   updateWinner(input: {id: Integer, winner: Boolean}) {
@@ -437,8 +628,11 @@ mutation {
 }
 
 ```
+</details>
 
-### Sample Valid Response
+<details>
+    <summary> Sample Valid Response </summary>
+
 ```json
 {
   "data": {
@@ -456,3 +650,5 @@ mutation {
 }
 ```
 *Note: Submission's winner boolean is set to false by default
+</details>
+</details>
