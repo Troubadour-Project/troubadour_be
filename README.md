@@ -94,7 +94,8 @@ This is a Full-Stack project designed to explore the fundamentals of exposing an
 
 - Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails), [faker](https://github.com/vajradog/faker-rails)
 
-- API: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers), [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993)
+- API: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers), [graphql](https://github.com/rmosolgo/graphql-ruby), [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993), [rack-cors](https://www.rubydoc.info/gems/rack-cors/0.4.0)
+- Storage: [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
 
 ### Database Schema
 ![image](https://user-images.githubusercontent.com/78194232/160707141-702122b5-f8e7-43bf-876d-530a280160a2.png)
