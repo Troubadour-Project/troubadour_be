@@ -1,4 +1,8 @@
-![102184543](https://user-images.githubusercontent.com/89213429/161408284-969a518f-c8b7-4003-adbc-9509fffce797.png)
+
+<p align="center" width="100%">
+    <img width="55%" src="https://user-images.githubusercontent.com/78194232/161444100-d82d533f-bc5d-4996-b49d-9423a1f6a4bf.png" alt="Troubadour Logo">
+</p>
+<div align="center">
 
 # The Troubadour Project - API
 
@@ -8,6 +12,7 @@
 ![CircleCI](https://img.shields.io/circleci/build/gh/Troubadour-Project/troubadour_be/main)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/contributors-7-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</div>
 
 ## Visit the [Web Application](https://troubadour-fe.herokuapp.com/)  &   Find The Troubador Project - Web Application Repository [here](https://github.com/Troubadour-Project/troubadour-fe)
 ### Module 4 Group Capstone Project
