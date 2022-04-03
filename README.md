@@ -1,4 +1,7 @@
 ![102184543](https://user-images.githubusercontent.com/89213429/161408284-969a518f-c8b7-4003-adbc-9509fffce797.png)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 # The Troubadour Project - API 
 ![languages](https://img.shields.io/github/languages/top/Troubadour-Project/troubadour_be?color=red)
 ![PRs](https://img.shields.io/github/issues-pr-closed/Troubadour-Project/troubadour_be)
@@ -659,3 +662,23 @@ mutation {
 </details>
 
 
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/aliroemhildt/"><img src="https://avatars.githubusercontent.com/u/90285501?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ali Roemhildt</b></sub></a><br /><a href="https://github.com/Troubadour-Project/troubadour_be/commits?author=aliroemhildt" title="Documentation">📖</a> <a href="#design-aliroemhildt" title="Design">🎨</a> <a href="#ideas-aliroemhildt" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-aliroemhildt" title="Project Management">📆</a> <a href="https://github.com/Troubadour-Project/troubadour_be/pulls?q=is%3Apr+reviewed-by%3Aaliroemhildt" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/Troubadour-Project/troubadour_be/commits?author=aliroemhildt" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
