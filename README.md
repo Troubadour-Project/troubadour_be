@@ -14,7 +14,7 @@
 Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capstone/index.html)
 
 <details open="open">
-  <summary>Table of Contents</summary>
+  <summary><b>Table of Contents</b></summary>
   <ol>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -113,7 +113,7 @@ This is a Full-Stack project designed to explore the fundamentals of exposing an
 ## Troubadour Published API Documentation - [Postman](https://documenter.getpostman.com/view/19252156/UVyswb76)
 
 <details>
-    <summary> JSON Contract </summary>
+  <summary><b>JSON Contract</b></summary>
 
 ```json
 
@@ -233,7 +233,7 @@ This is a Full-Stack project designed to explore the fundamentals of exposing an
 </details>
 
 <details>
-    <summary> REST Query </summary>
+  <summary><b>REST Query</b></summary>
     
 ## Create Submission
 Description: Create a new submission by adding user information and uploading a profile and video in the form fields. 
@@ -302,7 +302,7 @@ Description: Create a new submission by adding user information and uploading a 
  </details>
     
 <details>
-    <summary> GraphQL Queries </summary>
+  <summary><b>GraphQL Queries</b></summary>
     
 ## getAdmin
 Description: Get admin by admin id. If there is a match, return requested field values. Otherwise return null.
@@ -575,7 +575,7 @@ Description: Get the winning submission. If there is a match, return requested f
 </details>
 
 <details>
-    <summary> GraphQL Mutations </summary>
+  <summary></b>GraphQL Mutations</b></summary>
     
 ## favoriteSubmissionAdmin 
 Description: Changes the favorite boolean on SubmissionAdmin from true to false/false to true
