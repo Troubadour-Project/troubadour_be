@@ -86,7 +86,7 @@ This is a Full-Stack project designed to explore the fundamentals of exposing an
 ### Versions
 
 - `Ruby 2.7.2`
-- `Rails 6.0`
+- `Rails 6.1.5`
 
 ----------
 
