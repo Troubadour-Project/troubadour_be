@@ -12,9 +12,6 @@ Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capst
       <ul>
         <li><a href="#set-up">Set Up</a></li>
         <li><a href="#use-of-this-repository">Use of this Repository</a>
-          <ul>
-            <li>API</li>
-          </ul>
         </li>
     </li>
     </ul>
