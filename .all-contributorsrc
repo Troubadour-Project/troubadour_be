@@ -6,6 +6,58 @@
   "commit": false,
   "contributors": [
     {
+      "login": "arnaldoaparicio",
+      "name": "Arnaldo Aparicio",
+      "avatar_url": "https://avatars.githubusercontent.com/u/88012780?v=4",
+      "profile": "https://github.com/arnaldoaparicio",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
+    },
+      "login": "oacortez",
+      "name": "Oscar Cortez Barrientos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61717746?v=4",
+      "profile": "https://github.com/oacortez",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
+    },
+      "login": "Echory",
+      "name": "Echory",
+      "avatar_url": "https://avatars.githubusercontent.com/u/81824035?v=4",
+      "profile": "https://github.com/Echory",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
+    },
+      "login": "mr-ryan12",
+      "name": "Ryan McBride",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62816754?v=4",
+      "profile": "https://github.com/mr-ryan12",
+      "contributions": [
+        "doc",
+        "design",
+        "ideas",
+        "projectManagement",
+        "review",
+        "test"
+      ]
+    },
       "login": "tjroeder",
       "name": "Tim Roeder",
       "avatar_url": "https://avatars.githubusercontent.com/u/78194232?v=4",
