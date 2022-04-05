@@ -664,7 +664,7 @@ mutation {
 </details>
 
 ## updateWinner
-Description: Changes the winner boolean.*
+Description: Changes the winner boolean.
 <details>
     <summary> Sample Request </summary>
 
