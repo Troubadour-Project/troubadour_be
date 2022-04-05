@@ -24,7 +24,8 @@ Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capst
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#set-up">Set Up</a></li>
+        <li><a href="#general-setup">General Setup</a></li>
+        <li><a href="#basic-aws-s3-setup">Basic AWS S3 Setup</a></li>
         <li><a href="#use-of-this-repository">Use of this Repository</a>
         </li>
     </li>
@@ -59,7 +60,7 @@ Reference: [Turing Project Documentation](https://mod4.turing.edu/projects/capst
 
 ## Getting Started
 
-### Set Up
+### General Setup
 On your local system, open a terminal session to run the following commands:
 1. Clone this repository `$ git clone git@github.com:Troubadour-Project/troubadour_be.git`
 2. Navigate to the newly cloned directory `$ cd troubadour_be`
@@ -68,7 +69,48 @@ On your local system, open a terminal session to run the following commands:
 5. If errors occur, check for proper installation and versions of `bundler`, `ruby`, and `rails`
 6. Set up the database locally with `$ rails db:{:drop,:create,:migrate,:seed}`
 7. Open your text editor and check to see that `schema.rb` exists
-8. You may also run the RSpec test suite locally with the command `$ bundle exec rspec` to ensure everything is functioning as expected.
+
+
+### Basic AWS S3 Setup
+1. To setup environmental variables, an Amazon Web Services account will be required for utilizing the Active Storage functionality. Begin by signing up for AWS `https://aws.amazon.com/`.
+2. After signing up for an account, create two S3 (Simple Storage Service) buckets, one for production use, and one for development. Default settings are fine for our use.
+3. If setting up the Troubadour Backend with our Troubadour FE, CORS Permissions will need to be setup with the S3 buckets. Below is an example and should be modified for your use.
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "https://your.site.url.com"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+4. Next, for insulating your root user credentials from the app and to promote Privilege of Least Principles, create a new IAM user with Programmatic Access. As well it is advised to create a new user group with privileges for just utilizing your S3 storage.
+5. After setup of your buckets, back in your project directory we will now be saving our credentials utilizing the [Figaro Gem](https://github.com/laserlemon/figaro) by running the following command from the terminal. This command will create a new file `config/application.yml` and append the file to your `.gitignore` to prevent uploading to a remote service.
+```zsh
+$ bundle exec figaro install
+```
+6. Using your new IAM user credentials fill in `application.yml` file with the user's AWS Access Key ID, Secret Access Key, region, and the production and development bucket names. After this your AWS S3 ActiveStorage setup is complete.
+```yml
+# Amazon S3 Configuration
+aws_s3_access_key_id: "your_access_key_id_here"
+aws_s3_secret_access_key: "your_secret_access_key_id_here"
+aws_s3_region: "your_s3_bucket_region_here"
+aws_s3_bucket_prod: "your_production_bucket_name_here"
+aws_s3_bucket_dev: "your_development_bucket_name_here"
+```
+7. With S3 setup, you may now run the RSpec test suite locally with the command `$ bundle exec rspec` to ensure everything is functioning as expected.
+
+----------
 
 ### Use of this Repository
 
@@ -106,10 +148,11 @@ This is a Full-Stack project designed to explore the fundamentals of exposing an
 
 ### Important Gems
 
-- Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails), [faker](https://github.com/vajradog/faker-rails)
+- Testing:  [rspec-rails](https://github.com/rspec/rspec-rails),  [simplecov](https://github.com/simplecov-ruby/simplecov),  [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails),  [faker](https://github.com/vajradog/faker-rails),  [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers),  [pry](https://github.com/pry/pry),  [rspec_junit_formatter](https://github.com/sj26/rspec_junit_formatter),  [graphiql-rails](https://github.com/rmosolgo/graphiql-rails)
 
-- API: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers), [graphql](https://github.com/rmosolgo/graphql-ruby), [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993), [rack-cors](https://www.rubydoc.info/gems/rack-cors/0.4.0)
-- Storage: [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
+- API:  [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers),  [graphql](https://github.com/rmosolgo/graphql-ruby),  [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993),  [rack-cors](https://www.rubydoc.info/gems/rack-cors/0.4.0)
+
+- Storage:  [aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)
 
 ### Database Schema
 ![image](https://user-images.githubusercontent.com/78194232/160707141-702122b5-f8e7-43bf-876d-530a280160a2.png)
